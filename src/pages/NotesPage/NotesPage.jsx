@@ -2,16 +2,13 @@ import { useEffect } from "react";
 import NoteCard from "../../components/NoteCard/NoteCard"
 import CreateNewNote from "../../components/CreateNewNote/CreateNewNote";
 
-export default function NotesPage({ notes, displayNotes }) {
-  useEffect(function() {
-    displayNotes();
-  }, [])
+export default function NotesPage({ notes, setNotes, displayNotes }) {
 
   return (
     <>
     <h1>Notes</h1>
     <div>
-    <CreateNewNote displayNotes={displayNotes} />
+    <CreateNewNote setNotes={setNotes} notes={ notes } />
     </div>
       <div>
         {notes.map((note, idx) => (

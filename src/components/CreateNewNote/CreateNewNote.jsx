@@ -18,19 +18,23 @@ export default class CreateNewNote extends Component {
     try {
       const {content} = this.state
       const formData = {content}
-      await create(formData);
+      const newNote = await create(formData);
+      this.props.setNotes([...this.props.notes, newNote]);
+      this.setState({
+        content: ''
+      });
     } catch {
       this.setState({ error: 'Failed to create note - Try again'})
     }
   }
-  
+
   render() {
     return (
       <div>
         <div className="form-container">
           <form onSubmit={this.handleSubmit}>
             <label>Content</label>
-            <input type="text" name="content" value={this.state.content} onChange={this.handleChange} required/>
+            <input type="text" name="content" placeholder='Add Note' value={this.state.content} onChange={this.handleChange} required/>
             <button type="submit">Add Note</button>
           </form>
         </div>

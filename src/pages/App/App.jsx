@@ -27,7 +27,7 @@ export default function App() {
             <NavBar user={user} setUser={setUser} />
             <Routes>
               {/* Route components in here */}
-              <Route path="/notes" element={<NotesPage notes={ notes } displayNotes={displayNotes} />} />
+              <Route path="/notes" element={<NotesPage setNotes={setNotes} notes={ notes } displayNotes={displayNotes} />} />
             </Routes>
           </>
           :
