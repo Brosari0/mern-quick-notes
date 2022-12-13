@@ -1,6 +1,5 @@
-export default function({ note }) {
-  console.log(note)
+export default function NoteCard({ note, idx }) {
   return (
-    <p>{note.content}</p>
+    <p>{idx}- {note.content} {note.createdAt.toLocaleString()}</p>
   )
 }
