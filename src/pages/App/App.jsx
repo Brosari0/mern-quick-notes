@@ -11,23 +11,23 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   const [notes, setNotes] = useState([]);
 
-  async function displayNotes() {
-    const noteData = await find();
-    setNotes(noteData)
-  }
-
-  useEffect(function() {
+  
+  useEffect(() => {
+    async function displayNotes() {
+      const noteData = await find();
+      setNotes(noteData)
+    }
     displayNotes();
-  }, [])
+  }, [user]);
 
   return (
     <main className="App">
       { user ?
           <>
-            <NavBar user={user} setUser={setUser} />
+            <NavBar user={user} setUser={setUser} setNotes={setNotes} />
             <Routes>
               {/* Route components in here */}
-              <Route path="/notes" element={<NotesPage setNotes={setNotes} notes={ notes } displayNotes={displayNotes} />} />
+              <Route path="/notes" element={<NotesPage setNotes={setNotes} notes={ notes } />} />
             </Routes>
           </>
           :
