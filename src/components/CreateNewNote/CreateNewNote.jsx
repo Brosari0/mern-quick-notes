@@ -17,8 +17,8 @@ export default class CreateNewNote extends Component {
     evt.preventDefault();
     try {
       const {content} = this.state
-      const formData = {content}
-      const newNote = await create(formData);
+      const payload = {content}
+      const newNote = await create(payload);
       this.props.setNotes([...this.props.notes, newNote]);
       this.setState({
         content: ''

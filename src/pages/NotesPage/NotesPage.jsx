@@ -16,7 +16,7 @@ export default function NotesPage({ notes, setNotes }) {
       <div>
         {notes.map((note, idx) => (
           <div>
-            <NoteCard setNotes={setNotes} note={note} idx={idx} />
+            <NoteCard setNotes={setNotes} note={note} key={idx} />
           </div>
         ))}
       </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as notesAPI from "../../utilities/notes-api"
 
-export default function NoteCard({ note, setNote, idx }) {
+export default function NoteCard({ note, setNote, key }) {
   const [formData, setFormData] = useState({
     content: `${note.content}`
   })
@@ -29,7 +29,7 @@ export default function NoteCard({ note, setNote, idx }) {
       <div style={{ display: "flex", justifyContent: "space-between" }}>
 
         {edit ?
-          <p>{idx}- {note.content} {date.toLocaleDateString(undefined, dateOptions)}</p>
+          <p>{key}- {note.content} {date.toLocaleDateString(undefined, dateOptions)}</p>
           :
           <form onSubmit={handleSubmit}>
             <div style={{ display: "flex", justifyContent: "space-evenly" }}>
